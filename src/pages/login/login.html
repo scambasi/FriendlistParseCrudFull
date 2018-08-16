@@ -1,0 +1,27 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Friends List</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-card >
+  <img src="/assets/imgs/bebek-logo.jpg" class="logo"/>
+</ion-card>
+<ion-list >
+  <ion-item>
+    <ion-label floating >Kullanıcı Adı</ion-label>
+    <ion-input type="text" [(ngModel)]="user.username"> </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating >Şifre</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"> </ion-input>
+  </ion-item>
+</ion-list>
+<button block ion-button (click)="login()">Giriş</button>
+<button clear block ion-button (click)="goToSignUp()">Üye Ol</button>
+</ion-content>

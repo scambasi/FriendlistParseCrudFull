@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Arkadaş Listeniz</ion-title>
+    <ion-buttons end>
+<button ion-button icon-only (click)="logOut()">
+  <ion-icon name="exit"> </ion-icon>
+</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-fab bottom right>
+  <button ion-fab icon-only (click)="showAddDialog()">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>
+<ion-list>
+  <ion-refresher (ionRefresh)="getFriends($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-item-sliding *ngFor="let f of friends">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="https://loremflickr.com/32/24" />
+
+      </ion-avatar>
+      <h2>{{f.adi}}</h2>
+      <h3>{{f.email}}</h3>
+      <p>{{f.ceptelefon}}</p>
+
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button icon-only color="secondary" (click)="editFriend(f)">
+        <ion-icon name="create"></ion-icon>
+      </button>
+      <button ion-button icon-only color="danger" (click)="deleteFriend(f)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+</ion-content>
